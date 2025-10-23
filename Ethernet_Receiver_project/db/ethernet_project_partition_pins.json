@@ -1,0 +1,105 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "fifo_full",
+					"strict" : false
+				},
+				{
+					"name" : "fifo_empty",
+					"strict" : false
+				},
+				{
+					"name" : "fifo_data_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "fifo_data_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "fifo_data_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "fifo_data_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "fifo_data_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "fifo_data_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "fifo_data_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "fifo_data_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "crc_ok_led",
+					"strict" : false
+				},
+				{
+					"name" : "frame_complete",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "fifo_rd_en",
+					"strict" : false
+				},
+				{
+					"name" : "rx_byte_valid",
+					"strict" : false
+				},
+				{
+					"name" : "rx_byte[7]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_byte[6]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_byte[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_byte[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_byte[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_byte[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_byte[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_byte[5]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

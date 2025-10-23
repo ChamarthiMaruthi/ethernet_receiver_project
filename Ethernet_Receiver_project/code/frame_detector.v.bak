@@ -1,0 +1,95 @@
+/*
+ frame_detector.v
+ Detect 7 bytes of 0x55 followed by SFD 0xD5
+ Interface: serial byte in (8-bit parallel bytes presented with valid strobe)
+*/
+module frame_detector #(
+    parameter DATA_WIDTH = 8
+)(
+    input clk,
+    input rst,
+    input [DATA_WIDTH-1:0] rx_byte,
+    input rx_byte_valid,
+    output reg frame_valid,      // asserted for one cycle when frame detected (SFD seen)
+    output reg capturing         // high while payload reception expected
+);
+
+    // states
+    parameter IDLE = 3'd0;
+    parameter PREAMBLE = 3'd1;
+    parameter SFD = 3'd2;
+    parameter CAPTURE = 3'd3;
+    parameter DONE = 3'd4;
+
+    reg [2:0] state;
+    reg [2:0] preamble_count;
+
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            state <= IDLE;
+            preamble_count <= 3'd0;
+            frame_valid <= 1'b0;
+            capturing <= 1'b0;
+        end else begin
+            frame_valid <= 1'b0; // default
+            case (state)
+                IDLE: begin
+                    capturing <= 1'b0;
+                    preamble_count <= 3'd0;
+                    if (rx_byte_valid && rx_byte == 8'h55) begin
+                        preamble_count <= 3'd1;
+                        state <= PREAMBLE;
+                    end
+                end
+                PREAMBLE: begin
+                    if (rx_byte_valid) begin
+                        if (rx_byte == 8'h55) begin
+                            if (preamble_count == 3'd6) begin
+                                // we have seen 7 times 0x55; next byte should be SFD
+                                state <= SFD;
+                            end else begin
+                                preamble_count <= preamble_count + 3'd1;
+                                state <= PREAMBLE;
+                            end
+                        end else begin
+                            // false alarm, go back to IDLE or check if this is start of new preamble
+                            if (rx_byte == 8'h55) begin
+                                preamble_count <= 3'd1;
+                                state <= PREAMBLE;
+                            end else begin
+                                preamble_count <= 3'd0;
+                                state <= IDLE;
+                            end
+                        end
+                    end
+                end
+                SFD: begin
+                    if (rx_byte_valid) begin
+                        if (rx_byte == 8'hD5) begin
+                            // Start of frame detected
+                            frame_valid <= 1'b1;
+                            capturing <= 1'b1;
+                            state <= CAPTURE;
+                        end else begin
+                            // not SFD, restart search
+                            preamble_count <= 3'd0;
+                            state <= IDLE;
+                        end
+                    end
+                end
+                CAPTURE: begin
+                    // remain in capture until external logic decides frame end (or FIFO)
+                    // capturing is held high to indicate payload should be sent to FIFO
+                    if (!capturing) begin
+                        state <= DONE;
+                    end
+                end
+                DONE: begin
+                    capturing <= 1'b0;
+                    state <= IDLE;
+                end
+                default: state <= IDLE;
+            endcase
+        end
+    end
+endmodule

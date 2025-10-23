@@ -1,0 +1,430 @@
+Analysis & Synthesis report for ethernet_project
+Fri Oct 24 00:22:53 2025
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |ethernet_top|frame_detector:u_frame_detector|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: frame_detector:u_frame_detector
+ 14. Parameter Settings for User Entity Instance: data_capture:u_data_capture
+ 15. Parameter Settings for User Entity Instance: fifo_buffer:u_fifo
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Oct 24 00:22:53 2025       ;
+; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                   ; ethernet_project                            ;
+; Top-level Entity Name           ; ethernet_top                                ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 2193                                        ;
+; Total pins                      ; 24                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
+; Top-level entity name                                                           ; ethernet_top       ; ethernet_project   ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processor 9            ;   0.0%      ;
+;     Processor 10           ;   0.0%      ;
+;     Processor 11           ;   0.0%      ;
+;     Processor 12           ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                          ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
+; code/fifo_buffer.v               ; yes             ; User Verilog HDL File  ; /home/maruthi/Downloads/Ethernet_Receiver_project/code/fifo_buffer.v    ;         ;
+; code/crc_stub.v                  ; yes             ; User Verilog HDL File  ; /home/maruthi/Downloads/Ethernet_Receiver_project/code/crc_stub.v       ;         ;
+; code/frame_detector.v            ; yes             ; User Verilog HDL File  ; /home/maruthi/Downloads/Ethernet_Receiver_project/code/frame_detector.v ;         ;
+; code/data_capture.v              ; yes             ; User Verilog HDL File  ; /home/maruthi/Downloads/Ethernet_Receiver_project/code/data_capture.v   ;         ;
+; code/ethernet_top.v              ; yes             ; User Verilog HDL File  ; /home/maruthi/Downloads/Ethernet_Receiver_project/code/ethernet_top.v   ;         ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 1505      ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 1061      ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 729       ;
+;     -- 5 input functions                    ; 17        ;
+;     -- 4 input functions                    ; 259       ;
+;     -- <=3 input functions                  ; 56        ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 2193      ;
+;                                             ;           ;
+; I/O pins                                    ; 24        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 2193      ;
+; Total fan-out                               ; 14380     ;
+; Average fan-out                             ; 4.35      ;
++---------------------------------------------+-----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                           ;
++--------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+----------------+--------------+
+; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                           ; Entity Name    ; Library Name ;
++--------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+----------------+--------------+
+; |ethernet_top                        ; 1061 (0)            ; 2193 (10)                 ; 0                 ; 0          ; 24   ; 0            ; |ethernet_top                                 ; ethernet_top   ; work         ;
+;    |crc_stub:u_crc|                  ; 8 (8)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |ethernet_top|crc_stub:u_crc                  ; crc_stub       ; work         ;
+;    |data_capture:u_data_capture|     ; 25 (25)             ; 90 (90)                   ; 0                 ; 0          ; 0    ; 0            ; |ethernet_top|data_capture:u_data_capture     ; data_capture   ; work         ;
+;    |fifo_buffer:u_fifo|              ; 999 (999)           ; 2083 (2083)               ; 0                 ; 0          ; 0    ; 0            ; |ethernet_top|fifo_buffer:u_fifo              ; fifo_buffer    ; work         ;
+;    |frame_detector:u_frame_detector| ; 29 (29)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |ethernet_top|frame_detector:u_frame_detector ; frame_detector ; work         ;
++--------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------+
+; State Machine - |ethernet_top|frame_detector:u_frame_detector|state                   ;
++----------------+---------------+-----------+----------------+------------+------------+
+; Name           ; state.CAPTURE ; state.SFD ; state.PREAMBLE ; state.IDLE ; state.DONE ;
++----------------+---------------+-----------+----------------+------------+------------+
+; state.IDLE     ; 0             ; 0         ; 0              ; 0          ; 0          ;
+; state.PREAMBLE ; 0             ; 0         ; 1              ; 1          ; 0          ;
+; state.SFD      ; 0             ; 1         ; 0              ; 1          ; 0          ;
+; state.CAPTURE  ; 1             ; 0         ; 0              ; 1          ; 0          ;
+; state.DONE     ; 0             ; 0         ; 0              ; 1          ; 1          ;
++----------------+---------------+-----------+----------------+------------+------------+
+
+
++---------------------------------------------------------------+
+; Registers Removed During Synthesis                            ;
++------------------------------------------+--------------------+
+; Register name                            ; Reason for Removal ;
++------------------------------------------+--------------------+
+; frame_detector:u_frame_detector|state~9  ; Lost fanout        ;
+; frame_detector:u_frame_detector|state~10 ; Lost fanout        ;
+; Total Number of Removed Registers = 2    ;                    ;
++------------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2193  ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 2161  ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 2171  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; fifo_buffer:u_fifo|empty               ; 11      ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+; 256:1              ; 8 bits    ; 1360 LEs      ; 1360 LEs             ; 0 LEs                  ; Yes        ; |ethernet_top|fifo_buffer:u_fifo|data_out[7]                    ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |ethernet_top|frame_detector:u_frame_detector|preamble_count[2] ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 12 LEs               ; 9 LEs                  ; No         ; |ethernet_top|frame_detector:u_frame_detector|Selector8         ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 6 LEs                ; 8 LEs                  ; No         ; |ethernet_top|frame_detector:u_frame_detector|Selector4         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: frame_detector:u_frame_detector ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; DATA_WIDTH     ; 8     ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: data_capture:u_data_capture ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; DATA_WIDTH     ; 8     ; Signed Integer                                  ;
+; PAYLOAD_LEN    ; 64    ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fifo_buffer:u_fifo ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; DATA_WIDTH     ; 8     ; Signed Integer                         ;
+; ADDR_WIDTH     ; 8     ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 2193                        ;
+;     CLR               ; 22                          ;
+;     ENA               ; 32                          ;
+;     ENA CLR           ; 2139                        ;
+; arriav_lcell_comb     ; 1062                        ;
+;     arith             ; 38                          ;
+;         1 data inputs ; 27                          ;
+;         2 data inputs ; 3                           ;
+;         3 data inputs ; 8                           ;
+;     normal            ; 1024                        ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 7                           ;
+;         4 data inputs ; 259                         ;
+;         5 data inputs ; 17                          ;
+;         6 data inputs ; 729                         ;
+; boundary_port         ; 24                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 3.71                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Fri Oct 24 00:22:44 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Ethernet_Receiver -c ethernet_project
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file code/fifo_buffer.v
+    Info (12023): Found entity 1: fifo_buffer File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/fifo_buffer.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file code/crc_stub.v
+    Info (12023): Found entity 1: crc_stub File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/crc_stub.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file code/frame_detector.v
+    Info (12023): Found entity 1: frame_detector File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/frame_detector.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file code/data_capture.v
+    Info (12023): Found entity 1: data_capture File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/data_capture.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file code/ethernet_top.v
+    Info (12023): Found entity 1: ethernet_top File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/ethernet_top.v Line: 5
+Warning (10222): Verilog HDL Parameter Declaration warning at frame_detector.v(19): Parameter Declaration in module "frame_detector" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/frame_detector.v Line: 19
+Warning (10222): Verilog HDL Parameter Declaration warning at frame_detector.v(20): Parameter Declaration in module "frame_detector" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/frame_detector.v Line: 20
+Warning (10222): Verilog HDL Parameter Declaration warning at frame_detector.v(21): Parameter Declaration in module "frame_detector" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/frame_detector.v Line: 21
+Warning (10222): Verilog HDL Parameter Declaration warning at frame_detector.v(22): Parameter Declaration in module "frame_detector" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/frame_detector.v Line: 22
+Warning (10222): Verilog HDL Parameter Declaration warning at frame_detector.v(23): Parameter Declaration in module "frame_detector" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/frame_detector.v Line: 23
+Warning (10222): Verilog HDL Parameter Declaration warning at data_capture.v(34): Parameter Declaration in module "data_capture" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/data_capture.v Line: 34
+Warning (10222): Verilog HDL Parameter Declaration warning at data_capture.v(35): Parameter Declaration in module "data_capture" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/data_capture.v Line: 35
+Info (12127): Elaborating entity "ethernet_top" for the top level hierarchy
+Info (12128): Elaborating entity "frame_detector" for hierarchy "frame_detector:u_frame_detector" File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/ethernet_top.v Line: 49
+Info (12128): Elaborating entity "data_capture" for hierarchy "data_capture:u_data_capture" File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/ethernet_top.v Line: 69
+Warning (10036): Verilog HDL or VHDL warning at data_capture.v(30): object "dc_state" assigned a value but never read File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/data_capture.v Line: 30
+Warning (10036): Verilog HDL or VHDL warning at data_capture.v(31): object "dut_valid_count" assigned a value but never read File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/data_capture.v Line: 31
+Warning (10175): Verilog HDL warning at data_capture.v(63): ignoring unsupported system task File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/data_capture.v Line: 63
+Warning (10175): Verilog HDL warning at data_capture.v(70): ignoring unsupported system task File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/data_capture.v Line: 70
+Warning (10175): Verilog HDL warning at data_capture.v(79): ignoring unsupported system task File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/data_capture.v Line: 79
+Warning (10230): Verilog HDL assignment warning at data_capture.v(83): truncated value with size 32 to match size of target (16) File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/data_capture.v Line: 83
+Warning (10230): Verilog HDL assignment warning at data_capture.v(99): truncated value with size 32 to match size of target (16) File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/data_capture.v Line: 99
+Info (12128): Elaborating entity "fifo_buffer" for hierarchy "fifo_buffer:u_fifo" File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/ethernet_top.v Line: 80
+Warning (10230): Verilog HDL assignment warning at fifo_buffer.v(38): truncated value with size 32 to match size of target (8) File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/fifo_buffer.v Line: 38
+Warning (10230): Verilog HDL assignment warning at fifo_buffer.v(39): truncated value with size 32 to match size of target (9) File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/fifo_buffer.v Line: 39
+Warning (10230): Verilog HDL assignment warning at fifo_buffer.v(44): truncated value with size 32 to match size of target (8) File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/fifo_buffer.v Line: 44
+Warning (10230): Verilog HDL assignment warning at fifo_buffer.v(45): truncated value with size 32 to match size of target (9) File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/fifo_buffer.v Line: 45
+Warning (10240): Verilog HDL Always Construct warning at fifo_buffer.v(25): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/fifo_buffer.v Line: 25
+Info (12128): Elaborating entity "crc_stub" for hierarchy "crc_stub:u_crc" File: /home/maruthi/Downloads/Ethernet_Receiver_project/code/ethernet_top.v Line: 88
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 3216 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 12 input pins
+    Info (21059): Implemented 12 output pins
+    Info (21061): Implemented 3192 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
+    Info: Peak virtual memory: 548 megabytes
+    Info: Processing ended: Fri Oct 24 00:22:53 2025
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:18
+
+

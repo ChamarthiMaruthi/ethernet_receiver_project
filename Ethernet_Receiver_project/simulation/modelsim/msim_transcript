@@ -1,0 +1,595 @@
+# do ethernet_project_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying /home/maruthi/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/code {/home/maruthi/Downloads/Ethernet_Receiver_project/code/fifo_buffer.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:55:43 on Oct 23,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/code" /home/maruthi/Downloads/Ethernet_Receiver_project/code/fifo_buffer.v 
+# -- Compiling module fifo_buffer
+# 
+# Top level modules:
+# 	fifo_buffer
+# End time: 22:55:43 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/code {/home/maruthi/Downloads/Ethernet_Receiver_project/code/crc_stub.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:55:43 on Oct 23,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/code" /home/maruthi/Downloads/Ethernet_Receiver_project/code/crc_stub.v 
+# -- Compiling module crc_stub
+# 
+# Top level modules:
+# 	crc_stub
+# End time: 22:55:43 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/code {/home/maruthi/Downloads/Ethernet_Receiver_project/code/frame_detector.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:55:43 on Oct 23,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/code" /home/maruthi/Downloads/Ethernet_Receiver_project/code/frame_detector.v 
+# -- Compiling module frame_detector
+# 
+# Top level modules:
+# 	frame_detector
+# End time: 22:55:43 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/code {/home/maruthi/Downloads/Ethernet_Receiver_project/code/data_capture.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:55:43 on Oct 23,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/code" /home/maruthi/Downloads/Ethernet_Receiver_project/code/data_capture.v 
+# -- Compiling module data_capture
+# 
+# Top level modules:
+# 	data_capture
+# End time: 22:55:43 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/code {/home/maruthi/Downloads/Ethernet_Receiver_project/code/ethernet_top.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:55:43 on Oct 23,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/code" /home/maruthi/Downloads/Ethernet_Receiver_project/code/ethernet_top.v 
+# -- Compiling module ethernet_top
+# 
+# Top level modules:
+# 	ethernet_top
+# End time: 22:55:43 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/test {/home/maruthi/Downloads/Ethernet_Receiver_project/test/tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:55:43 on Oct 23,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/test" /home/maruthi/Downloads/Ethernet_Receiver_project/test/tb.v 
+# -- Compiling module tb
+# 
+# Top level modules:
+# 	tb
+# End time: 22:55:43 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" tb 
+# Start time: 22:55:43 on Oct 23,2025
+# Loading work.tb
+# Loading work.ethernet_top
+# Loading work.frame_detector
+# Loading work.data_capture
+# Loading work.fifo_buffer
+# Loading work.crc_stub
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# TB: Loaded 76 bytes from data.txt
+# TB: Payload_start=8 payload_len=64
+# TB: Waiting for DUT to finish capturing entire frame...
+# TB:time:              175000,tb_rx_byte:01010101,tb_rx_byte_valid:1
+# Time:              195000,count:    0
+# TB:time:              265000,tb_rx_byte:01010101,tb_rx_byte_valid:1
+# Time:              285000,count:    1
+# TB:time:              355000,tb_rx_byte:01010101,tb_rx_byte_valid:1
+# Time:              375000,count:    2
+# TB:time:              445000,tb_rx_byte:01010101,tb_rx_byte_valid:1
+# Time:              465000,count:    3
+# TB:time:              535000,tb_rx_byte:01010101,tb_rx_byte_valid:1
+# Time:              555000,count:    4
+# TB:time:              625000,tb_rx_byte:01010101,tb_rx_byte_valid:1
+# Time:              645000,count:    5
+# TB:time:              715000,tb_rx_byte:01010101,tb_rx_byte_valid:1
+# Time:              735000,count:    6
+# TB:time:              805000,tb_rx_byte:11010101,tb_rx_byte_valid:1
+# Time:              825000,count:    7
+# TB:time:              905000,tb_rx_byte:00000000,tb_rx_byte_valid:1
+# Time:              925000, Didn't complete the count.
+# Time:              925000,count:    8
+# Time:              925000, Entered DC_capturing.rx_byte:00, count:    1
+# Time:              925000,total_frame_byte_count:    1,fifo_wr_data:00,rx_byte:00. The count is matching.
+# TB:time:              995000,tb_rx_byte:00000001,tb_rx_byte_valid:1
+# Time:             1005000, Entered DC_capturing.rx_byte:01, count:    1
+# Time:             1015000, Didn't complete the count.
+# Time:             1015000,count:    9
+# Time:             1015000, Entered DC_capturing.rx_byte:00, count:    2
+# Time:             1015000,total_frame_byte_count:    2,fifo_wr_data:01,rx_byte:00. The count is matching.
+# TB:time:             1085000,tb_rx_byte:00000010,tb_rx_byte_valid:1
+# Time:             1095000, Entered DC_capturing.rx_byte:02, count:    2
+# Time:             1105000, Didn't complete the count.
+# Time:             1105000,count:   10
+# Time:             1105000, Entered DC_capturing.rx_byte:00, count:    3
+# Time:             1105000,total_frame_byte_count:    3,fifo_wr_data:02,rx_byte:00. The count is matching.
+# TB:time:             1175000,tb_rx_byte:00000011,tb_rx_byte_valid:1
+# Time:             1185000, Entered DC_capturing.rx_byte:03, count:    3
+# Time:             1195000, Didn't complete the count.
+# Time:             1195000,count:   11
+# Time:             1195000, Entered DC_capturing.rx_byte:00, count:    4
+# Time:             1195000,total_frame_byte_count:    4,fifo_wr_data:03,rx_byte:00. The count is matching.
+# TB:time:             1265000,tb_rx_byte:00000100,tb_rx_byte_valid:1
+# Time:             1275000, Entered DC_capturing.rx_byte:04, count:    4
+# Time:             1285000, Didn't complete the count.
+# Time:             1285000,count:   12
+# Time:             1285000, Entered DC_capturing.rx_byte:00, count:    5
+# Time:             1285000,total_frame_byte_count:    5,fifo_wr_data:04,rx_byte:00. The count is matching.
+# TB:time:             1355000,tb_rx_byte:00000101,tb_rx_byte_valid:1
+# Time:             1365000, Entered DC_capturing.rx_byte:05, count:    5
+# Time:             1375000, Didn't complete the count.
+# Time:             1375000,count:   13
+# Time:             1375000, Entered DC_capturing.rx_byte:00, count:    6
+# Time:             1375000,total_frame_byte_count:    6,fifo_wr_data:05,rx_byte:00. The count is matching.
+# TB:time:             1445000,tb_rx_byte:00000110,tb_rx_byte_valid:1
+# Time:             1455000, Entered DC_capturing.rx_byte:06, count:    6
+# Time:             1465000, Didn't complete the count.
+# Time:             1465000,count:   14
+# Time:             1465000, Entered DC_capturing.rx_byte:00, count:    7
+# Time:             1465000,total_frame_byte_count:    7,fifo_wr_data:06,rx_byte:00. The count is matching.
+# TB:time:             1535000,tb_rx_byte:00000111,tb_rx_byte_valid:1
+# Time:             1545000, Entered DC_capturing.rx_byte:07, count:    7
+# Time:             1555000, Didn't complete the count.
+# Time:             1555000,count:   15
+# Time:             1555000, Entered DC_capturing.rx_byte:00, count:    8
+# Time:             1555000,total_frame_byte_count:    8,fifo_wr_data:07,rx_byte:00. The count is matching.
+# TB:time:             1625000,tb_rx_byte:00001000,tb_rx_byte_valid:1
+# Time:             1635000, Entered DC_capturing.rx_byte:08, count:    8
+# Time:             1645000, Didn't complete the count.
+# Time:             1645000,count:   16
+# Time:             1645000, Entered DC_capturing.rx_byte:00, count:    9
+# Time:             1645000,total_frame_byte_count:    9,fifo_wr_data:08,rx_byte:00. The count is matching.
+# TB:time:             1715000,tb_rx_byte:00001001,tb_rx_byte_valid:1
+# Time:             1725000, Entered DC_capturing.rx_byte:09, count:    9
+# Time:             1735000, Didn't complete the count.
+# Time:             1735000,count:   17
+# Time:             1735000, Entered DC_capturing.rx_byte:00, count:   10
+# Time:             1735000,total_frame_byte_count:   10,fifo_wr_data:09,rx_byte:00. The count is matching.
+# TB:time:             1805000,tb_rx_byte:00001010,tb_rx_byte_valid:1
+# Time:             1815000, Entered DC_capturing.rx_byte:0a, count:   10
+# Time:             1825000, Didn't complete the count.
+# Time:             1825000,count:   18
+# Time:             1825000, Entered DC_capturing.rx_byte:00, count:   11
+# Time:             1825000,total_frame_byte_count:   11,fifo_wr_data:0a,rx_byte:00. The count is matching.
+# TB:time:             1895000,tb_rx_byte:00001011,tb_rx_byte_valid:1
+# Time:             1905000, Entered DC_capturing.rx_byte:0b, count:   11
+# Time:             1915000, Didn't complete the count.
+# Time:             1915000,count:   19
+# Time:             1915000, Entered DC_capturing.rx_byte:00, count:   12
+# Time:             1915000,total_frame_byte_count:   12,fifo_wr_data:0b,rx_byte:00. The count is matching.
+# TB:time:             1985000,tb_rx_byte:00001100,tb_rx_byte_valid:1
+# Time:             1995000, Entered DC_capturing.rx_byte:0c, count:   12
+# Time:             2005000, Didn't complete the count.
+# Time:             2005000,count:   20
+# Time:             2005000, Entered DC_capturing.rx_byte:00, count:   13
+# Time:             2005000,total_frame_byte_count:   13,fifo_wr_data:0c,rx_byte:00. The count is matching.
+# TB:time:             2075000,tb_rx_byte:00001101,tb_rx_byte_valid:1
+# Time:             2085000, Entered DC_capturing.rx_byte:0d, count:   13
+# Time:             2095000, Didn't complete the count.
+# Time:             2095000,count:   21
+# Time:             2095000, Entered DC_capturing.rx_byte:00, count:   14
+# Time:             2095000,total_frame_byte_count:   14,fifo_wr_data:0d,rx_byte:00. The count is matching.
+# TB:time:             2165000,tb_rx_byte:00001110,tb_rx_byte_valid:1
+# Time:             2175000, Entered DC_capturing.rx_byte:0e, count:   14
+# Time:             2185000, Didn't complete the count.
+# Time:             2185000,count:   22
+# Time:             2185000, Entered DC_capturing.rx_byte:00, count:   15
+# Time:             2185000,total_frame_byte_count:   15,fifo_wr_data:0e,rx_byte:00. The count is matching.
+# TB:time:             2255000,tb_rx_byte:00001111,tb_rx_byte_valid:1
+# Time:             2265000, Entered DC_capturing.rx_byte:0f, count:   15
+# Time:             2275000, Didn't complete the count.
+# Time:             2275000,count:   23
+# Time:             2275000, Entered DC_capturing.rx_byte:00, count:   16
+# Time:             2275000,total_frame_byte_count:   16,fifo_wr_data:0f,rx_byte:00. The count is matching.
+# TB:time:             2345000,tb_rx_byte:00010000,tb_rx_byte_valid:1
+# Time:             2355000, Entered DC_capturing.rx_byte:10, count:   16
+# Time:             2365000, Didn't complete the count.
+# Time:             2365000,count:   24
+# Time:             2365000, Entered DC_capturing.rx_byte:00, count:   17
+# Time:             2365000,total_frame_byte_count:   17,fifo_wr_data:10,rx_byte:00. The count is matching.
+# TB:time:             2435000,tb_rx_byte:00010001,tb_rx_byte_valid:1
+# Time:             2445000, Entered DC_capturing.rx_byte:11, count:   17
+# Time:             2455000, Didn't complete the count.
+# Time:             2455000,count:   25
+# Time:             2455000, Entered DC_capturing.rx_byte:00, count:   18
+# Time:             2455000,total_frame_byte_count:   18,fifo_wr_data:11,rx_byte:00. The count is matching.
+# TB:time:             2525000,tb_rx_byte:00010010,tb_rx_byte_valid:1
+# Time:             2535000, Entered DC_capturing.rx_byte:12, count:   18
+# Time:             2545000, Didn't complete the count.
+# Time:             2545000,count:   26
+# Time:             2545000, Entered DC_capturing.rx_byte:00, count:   19
+# Time:             2545000,total_frame_byte_count:   19,fifo_wr_data:12,rx_byte:00. The count is matching.
+# TB:time:             2615000,tb_rx_byte:00010011,tb_rx_byte_valid:1
+# Time:             2625000, Entered DC_capturing.rx_byte:13, count:   19
+# Time:             2635000, Didn't complete the count.
+# Time:             2635000,count:   27
+# Time:             2635000, Entered DC_capturing.rx_byte:00, count:   20
+# Time:             2635000,total_frame_byte_count:   20,fifo_wr_data:13,rx_byte:00. The count is matching.
+# TB:time:             2705000,tb_rx_byte:00010100,tb_rx_byte_valid:1
+# Time:             2715000, Entered DC_capturing.rx_byte:14, count:   20
+# Time:             2725000, Didn't complete the count.
+# Time:             2725000,count:   28
+# Time:             2725000, Entered DC_capturing.rx_byte:00, count:   21
+# Time:             2725000,total_frame_byte_count:   21,fifo_wr_data:14,rx_byte:00. The count is matching.
+# TB:time:             2795000,tb_rx_byte:00010101,tb_rx_byte_valid:1
+# Time:             2805000, Entered DC_capturing.rx_byte:15, count:   21
+# Time:             2815000, Didn't complete the count.
+# Time:             2815000,count:   29
+# Time:             2815000, Entered DC_capturing.rx_byte:00, count:   22
+# Time:             2815000,total_frame_byte_count:   22,fifo_wr_data:15,rx_byte:00. The count is matching.
+# TB:time:             2885000,tb_rx_byte:00010110,tb_rx_byte_valid:1
+# Time:             2895000, Entered DC_capturing.rx_byte:16, count:   22
+# Time:             2905000, Didn't complete the count.
+# Time:             2905000,count:   30
+# Time:             2905000, Entered DC_capturing.rx_byte:00, count:   23
+# Time:             2905000,total_frame_byte_count:   23,fifo_wr_data:16,rx_byte:00. The count is matching.
+# TB:time:             2975000,tb_rx_byte:00010111,tb_rx_byte_valid:1
+# Time:             2985000, Entered DC_capturing.rx_byte:17, count:   23
+# Time:             2995000, Didn't complete the count.
+# Time:             2995000,count:   31
+# Time:             2995000, Entered DC_capturing.rx_byte:00, count:   24
+# Time:             2995000,total_frame_byte_count:   24,fifo_wr_data:17,rx_byte:00. The count is matching.
+# TB:time:             3065000,tb_rx_byte:00011000,tb_rx_byte_valid:1
+# Time:             3075000, Entered DC_capturing.rx_byte:18, count:   24
+# Time:             3085000, Didn't complete the count.
+# Time:             3085000,count:   32
+# Time:             3085000, Entered DC_capturing.rx_byte:00, count:   25
+# Time:             3085000,total_frame_byte_count:   25,fifo_wr_data:18,rx_byte:00. The count is matching.
+# TB:time:             3155000,tb_rx_byte:00011001,tb_rx_byte_valid:1
+# Time:             3165000, Entered DC_capturing.rx_byte:19, count:   25
+# Time:             3175000, Didn't complete the count.
+# Time:             3175000,count:   33
+# Time:             3175000, Entered DC_capturing.rx_byte:00, count:   26
+# Time:             3175000,total_frame_byte_count:   26,fifo_wr_data:19,rx_byte:00. The count is matching.
+# TB:time:             3245000,tb_rx_byte:00011010,tb_rx_byte_valid:1
+# Time:             3255000, Entered DC_capturing.rx_byte:1a, count:   26
+# Time:             3265000, Didn't complete the count.
+# Time:             3265000,count:   34
+# Time:             3265000, Entered DC_capturing.rx_byte:00, count:   27
+# Time:             3265000,total_frame_byte_count:   27,fifo_wr_data:1a,rx_byte:00. The count is matching.
+# TB:time:             3335000,tb_rx_byte:00011011,tb_rx_byte_valid:1
+# Time:             3345000, Entered DC_capturing.rx_byte:1b, count:   27
+# Time:             3355000, Didn't complete the count.
+# Time:             3355000,count:   35
+# Time:             3355000, Entered DC_capturing.rx_byte:00, count:   28
+# Time:             3355000,total_frame_byte_count:   28,fifo_wr_data:1b,rx_byte:00. The count is matching.
+# TB:time:             3425000,tb_rx_byte:00011100,tb_rx_byte_valid:1
+# Time:             3435000, Entered DC_capturing.rx_byte:1c, count:   28
+# Time:             3445000, Didn't complete the count.
+# Time:             3445000,count:   36
+# Time:             3445000, Entered DC_capturing.rx_byte:00, count:   29
+# Time:             3445000,total_frame_byte_count:   29,fifo_wr_data:1c,rx_byte:00. The count is matching.
+# TB:time:             3515000,tb_rx_byte:00011101,tb_rx_byte_valid:1
+# Time:             3525000, Entered DC_capturing.rx_byte:1d, count:   29
+# Time:             3535000, Didn't complete the count.
+# Time:             3535000,count:   37
+# Time:             3535000, Entered DC_capturing.rx_byte:00, count:   30
+# Time:             3535000,total_frame_byte_count:   30,fifo_wr_data:1d,rx_byte:00. The count is matching.
+# TB:time:             3605000,tb_rx_byte:00011110,tb_rx_byte_valid:1
+# Time:             3615000, Entered DC_capturing.rx_byte:1e, count:   30
+# Time:             3625000, Didn't complete the count.
+# Time:             3625000,count:   38
+# Time:             3625000, Entered DC_capturing.rx_byte:00, count:   31
+# Time:             3625000,total_frame_byte_count:   31,fifo_wr_data:1e,rx_byte:00. The count is matching.
+# TB:time:             3695000,tb_rx_byte:00011111,tb_rx_byte_valid:1
+# Time:             3705000, Entered DC_capturing.rx_byte:1f, count:   31
+# Time:             3715000, Didn't complete the count.
+# Time:             3715000,count:   39
+# Time:             3715000, Entered DC_capturing.rx_byte:00, count:   32
+# Time:             3715000,total_frame_byte_count:   32,fifo_wr_data:1f,rx_byte:00. The count is matching.
+# TB:time:             3785000,tb_rx_byte:00100000,tb_rx_byte_valid:1
+# Time:             3795000, Entered DC_capturing.rx_byte:20, count:   32
+# Time:             3805000, Didn't complete the count.
+# Time:             3805000,count:   40
+# Time:             3805000, Entered DC_capturing.rx_byte:00, count:   33
+# Time:             3805000,total_frame_byte_count:   33,fifo_wr_data:20,rx_byte:00. The count is matching.
+# TB:time:             3875000,tb_rx_byte:00100001,tb_rx_byte_valid:1
+# Time:             3885000, Entered DC_capturing.rx_byte:21, count:   33
+# Time:             3895000, Didn't complete the count.
+# Time:             3895000,count:   41
+# Time:             3895000, Entered DC_capturing.rx_byte:00, count:   34
+# Time:             3895000,total_frame_byte_count:   34,fifo_wr_data:21,rx_byte:00. The count is matching.
+# TB:time:             3965000,tb_rx_byte:00100010,tb_rx_byte_valid:1
+# Time:             3975000, Entered DC_capturing.rx_byte:22, count:   34
+# Time:             3985000, Didn't complete the count.
+# Time:             3985000,count:   42
+# Time:             3985000, Entered DC_capturing.rx_byte:00, count:   35
+# Time:             3985000,total_frame_byte_count:   35,fifo_wr_data:22,rx_byte:00. The count is matching.
+# TB:time:             4055000,tb_rx_byte:00100011,tb_rx_byte_valid:1
+# Time:             4065000, Entered DC_capturing.rx_byte:23, count:   35
+# Time:             4075000, Didn't complete the count.
+# Time:             4075000,count:   43
+# Time:             4075000, Entered DC_capturing.rx_byte:00, count:   36
+# Time:             4075000,total_frame_byte_count:   36,fifo_wr_data:23,rx_byte:00. The count is matching.
+# TB:time:             4145000,tb_rx_byte:00100100,tb_rx_byte_valid:1
+# Time:             4155000, Entered DC_capturing.rx_byte:24, count:   36
+# Time:             4165000, Didn't complete the count.
+# Time:             4165000,count:   44
+# Time:             4165000, Entered DC_capturing.rx_byte:00, count:   37
+# Time:             4165000,total_frame_byte_count:   37,fifo_wr_data:24,rx_byte:00. The count is matching.
+# TB:time:             4235000,tb_rx_byte:00100101,tb_rx_byte_valid:1
+# Time:             4245000, Entered DC_capturing.rx_byte:25, count:   37
+# Time:             4255000, Didn't complete the count.
+# Time:             4255000,count:   45
+# Time:             4255000, Entered DC_capturing.rx_byte:00, count:   38
+# Time:             4255000,total_frame_byte_count:   38,fifo_wr_data:25,rx_byte:00. The count is matching.
+# TB:time:             4325000,tb_rx_byte:00100110,tb_rx_byte_valid:1
+# Time:             4335000, Entered DC_capturing.rx_byte:26, count:   38
+# Time:             4345000, Didn't complete the count.
+# Time:             4345000,count:   46
+# Time:             4345000, Entered DC_capturing.rx_byte:00, count:   39
+# Time:             4345000,total_frame_byte_count:   39,fifo_wr_data:26,rx_byte:00. The count is matching.
+# TB:time:             4415000,tb_rx_byte:00100111,tb_rx_byte_valid:1
+# Time:             4425000, Entered DC_capturing.rx_byte:27, count:   39
+# Time:             4435000, Didn't complete the count.
+# Time:             4435000,count:   47
+# Time:             4435000, Entered DC_capturing.rx_byte:00, count:   40
+# Time:             4435000,total_frame_byte_count:   40,fifo_wr_data:27,rx_byte:00. The count is matching.
+# TB:time:             4505000,tb_rx_byte:00101000,tb_rx_byte_valid:1
+# Time:             4515000, Entered DC_capturing.rx_byte:28, count:   40
+# Time:             4525000, Didn't complete the count.
+# Time:             4525000,count:   48
+# Time:             4525000, Entered DC_capturing.rx_byte:00, count:   41
+# Time:             4525000,total_frame_byte_count:   41,fifo_wr_data:28,rx_byte:00. The count is matching.
+# TB:time:             4595000,tb_rx_byte:00101001,tb_rx_byte_valid:1
+# Time:             4605000, Entered DC_capturing.rx_byte:29, count:   41
+# Time:             4615000, Didn't complete the count.
+# Time:             4615000,count:   49
+# Time:             4615000, Entered DC_capturing.rx_byte:00, count:   42
+# Time:             4615000,total_frame_byte_count:   42,fifo_wr_data:29,rx_byte:00. The count is matching.
+# TB:time:             4685000,tb_rx_byte:00101010,tb_rx_byte_valid:1
+# Time:             4695000, Entered DC_capturing.rx_byte:2a, count:   42
+# Time:             4705000, Didn't complete the count.
+# Time:             4705000,count:   50
+# Time:             4705000, Entered DC_capturing.rx_byte:00, count:   43
+# Time:             4705000,total_frame_byte_count:   43,fifo_wr_data:2a,rx_byte:00. The count is matching.
+# TB:time:             4775000,tb_rx_byte:00101011,tb_rx_byte_valid:1
+# Time:             4785000, Entered DC_capturing.rx_byte:2b, count:   43
+# Time:             4795000, Didn't complete the count.
+# Time:             4795000,count:   51
+# Time:             4795000, Entered DC_capturing.rx_byte:00, count:   44
+# Time:             4795000,total_frame_byte_count:   44,fifo_wr_data:2b,rx_byte:00. The count is matching.
+# TB:time:             4865000,tb_rx_byte:00101100,tb_rx_byte_valid:1
+# Time:             4875000, Entered DC_capturing.rx_byte:2c, count:   44
+# Time:             4885000, Didn't complete the count.
+# Time:             4885000,count:   52
+# Time:             4885000, Entered DC_capturing.rx_byte:00, count:   45
+# Time:             4885000,total_frame_byte_count:   45,fifo_wr_data:2c,rx_byte:00. The count is matching.
+# TB:time:             4955000,tb_rx_byte:00101101,tb_rx_byte_valid:1
+# Time:             4965000, Entered DC_capturing.rx_byte:2d, count:   45
+# Time:             4975000, Didn't complete the count.
+# Time:             4975000,count:   53
+# Time:             4975000, Entered DC_capturing.rx_byte:00, count:   46
+# Time:             4975000,total_frame_byte_count:   46,fifo_wr_data:2d,rx_byte:00. The count is matching.
+# TB:time:             5045000,tb_rx_byte:00101110,tb_rx_byte_valid:1
+# Time:             5055000, Entered DC_capturing.rx_byte:2e, count:   46
+# Time:             5065000, Didn't complete the count.
+# Time:             5065000,count:   54
+# Time:             5065000, Entered DC_capturing.rx_byte:00, count:   47
+# Time:             5065000,total_frame_byte_count:   47,fifo_wr_data:2e,rx_byte:00. The count is matching.
+# TB:time:             5135000,tb_rx_byte:00101111,tb_rx_byte_valid:1
+# Time:             5145000, Entered DC_capturing.rx_byte:2f, count:   47
+# Time:             5155000, Didn't complete the count.
+# Time:             5155000,count:   55
+# Time:             5155000, Entered DC_capturing.rx_byte:00, count:   48
+# Time:             5155000,total_frame_byte_count:   48,fifo_wr_data:2f,rx_byte:00. The count is matching.
+# TB:time:             5225000,tb_rx_byte:00110000,tb_rx_byte_valid:1
+# Time:             5235000, Entered DC_capturing.rx_byte:30, count:   48
+# Time:             5245000, Didn't complete the count.
+# Time:             5245000,count:   56
+# Time:             5245000, Entered DC_capturing.rx_byte:00, count:   49
+# Time:             5245000,total_frame_byte_count:   49,fifo_wr_data:30,rx_byte:00. The count is matching.
+# TB:time:             5315000,tb_rx_byte:00110001,tb_rx_byte_valid:1
+# Time:             5325000, Entered DC_capturing.rx_byte:31, count:   49
+# Time:             5335000, Didn't complete the count.
+# Time:             5335000,count:   57
+# Time:             5335000, Entered DC_capturing.rx_byte:00, count:   50
+# Time:             5335000,total_frame_byte_count:   50,fifo_wr_data:31,rx_byte:00. The count is matching.
+# TB:time:             5405000,tb_rx_byte:00110010,tb_rx_byte_valid:1
+# Time:             5415000, Entered DC_capturing.rx_byte:32, count:   50
+# Time:             5425000, Didn't complete the count.
+# Time:             5425000,count:   58
+# Time:             5425000, Entered DC_capturing.rx_byte:00, count:   51
+# Time:             5425000,total_frame_byte_count:   51,fifo_wr_data:32,rx_byte:00. The count is matching.
+# TB:time:             5495000,tb_rx_byte:00110011,tb_rx_byte_valid:1
+# Time:             5505000, Entered DC_capturing.rx_byte:33, count:   51
+# Time:             5515000, Didn't complete the count.
+# Time:             5515000,count:   59
+# Time:             5515000, Entered DC_capturing.rx_byte:00, count:   52
+# Time:             5515000,total_frame_byte_count:   52,fifo_wr_data:33,rx_byte:00. The count is matching.
+# TB:time:             5585000,tb_rx_byte:00110100,tb_rx_byte_valid:1
+# Time:             5595000, Entered DC_capturing.rx_byte:34, count:   52
+# Time:             5605000, Didn't complete the count.
+# Time:             5605000,count:   60
+# Time:             5605000, Entered DC_capturing.rx_byte:00, count:   53
+# Time:             5605000,total_frame_byte_count:   53,fifo_wr_data:34,rx_byte:00. The count is matching.
+# TB:time:             5675000,tb_rx_byte:00110101,tb_rx_byte_valid:1
+# Time:             5685000, Entered DC_capturing.rx_byte:35, count:   53
+# Time:             5695000, Didn't complete the count.
+# Time:             5695000,count:   61
+# Time:             5695000, Entered DC_capturing.rx_byte:00, count:   54
+# Time:             5695000,total_frame_byte_count:   54,fifo_wr_data:35,rx_byte:00. The count is matching.
+# TB:time:             5765000,tb_rx_byte:00110110,tb_rx_byte_valid:1
+# Time:             5775000, Entered DC_capturing.rx_byte:36, count:   54
+# Time:             5785000, Didn't complete the count.
+# Time:             5785000,count:   62
+# Time:             5785000, Entered DC_capturing.rx_byte:00, count:   55
+# Time:             5785000,total_frame_byte_count:   55,fifo_wr_data:36,rx_byte:00. The count is matching.
+# TB:time:             5855000,tb_rx_byte:00110111,tb_rx_byte_valid:1
+# Time:             5865000, Entered DC_capturing.rx_byte:37, count:   55
+# Time:             5875000, Didn't complete the count.
+# Time:             5875000,count:   63
+# Time:             5875000, Entered DC_capturing.rx_byte:00, count:   56
+# Time:             5875000,total_frame_byte_count:   56,fifo_wr_data:37,rx_byte:00. The count is matching.
+# TB:time:             5945000,tb_rx_byte:00111000,tb_rx_byte_valid:1
+# Time:             5955000, Entered DC_capturing.rx_byte:38, count:   56
+# Time:             5965000, Didn't complete the count.
+# Time:             5965000,count:   64
+# Time:             5965000, Entered DC_capturing.rx_byte:00, count:   57
+# Time:             5965000,total_frame_byte_count:   57,fifo_wr_data:38,rx_byte:00. The count is matching.
+# TB:time:             6035000,tb_rx_byte:00111001,tb_rx_byte_valid:1
+# Time:             6045000, Entered DC_capturing.rx_byte:39, count:   57
+# Time:             6055000, Didn't complete the count.
+# Time:             6055000,count:   65
+# Time:             6055000, Entered DC_capturing.rx_byte:00, count:   58
+# Time:             6055000,total_frame_byte_count:   58,fifo_wr_data:39,rx_byte:00. The count is matching.
+# TB:time:             6125000,tb_rx_byte:00111010,tb_rx_byte_valid:1
+# Time:             6135000, Entered DC_capturing.rx_byte:3a, count:   58
+# Time:             6145000, Didn't complete the count.
+# Time:             6145000,count:   66
+# Time:             6145000, Entered DC_capturing.rx_byte:00, count:   59
+# Time:             6145000,total_frame_byte_count:   59,fifo_wr_data:3a,rx_byte:00. The count is matching.
+# TB:time:             6215000,tb_rx_byte:00111011,tb_rx_byte_valid:1
+# Time:             6225000, Entered DC_capturing.rx_byte:3b, count:   59
+# Time:             6235000, Didn't complete the count.
+# Time:             6235000,count:   67
+# Time:             6235000, Entered DC_capturing.rx_byte:00, count:   60
+# Time:             6235000,total_frame_byte_count:   60,fifo_wr_data:3b,rx_byte:00. The count is matching.
+# TB:time:             6305000,tb_rx_byte:00111100,tb_rx_byte_valid:1
+# Time:             6315000, Entered DC_capturing.rx_byte:3c, count:   60
+# Time:             6325000, Didn't complete the count.
+# Time:             6325000,count:   68
+# Time:             6325000, Entered DC_capturing.rx_byte:00, count:   61
+# Time:             6325000,total_frame_byte_count:   61,fifo_wr_data:3c,rx_byte:00. The count is matching.
+# TB:time:             6395000,tb_rx_byte:00111101,tb_rx_byte_valid:1
+# Time:             6405000, Entered DC_capturing.rx_byte:3d, count:   61
+# Time:             6415000, Didn't complete the count.
+# Time:             6415000,count:   69
+# Time:             6415000, Entered DC_capturing.rx_byte:00, count:   62
+# Time:             6415000,total_frame_byte_count:   62,fifo_wr_data:3d,rx_byte:00. The count is matching.
+# TB:time:             6485000,tb_rx_byte:00111110,tb_rx_byte_valid:1
+# Time:             6495000, Entered DC_capturing.rx_byte:3e, count:   62
+# Time:             6505000, Didn't complete the count.
+# Time:             6505000,count:   70
+# Time:             6505000, Entered DC_capturing.rx_byte:00, count:   63
+# Time:             6505000,total_frame_byte_count:   63,fifo_wr_data:3e,rx_byte:00. The count is matching.
+# TB:time:             6575000,tb_rx_byte:00111111,tb_rx_byte_valid:1
+# Time:             6585000, Entered DC_capturing.rx_byte:3f, count:   63
+# Time:             6595000, Didn't complete the count.
+# Time:             6595000,count:   71
+# Time:             6595000, Entered DC_capturing.rx_byte:00, count:   64
+# Time:             6595000,total_frame_byte_count:   64,fifo_wr_data:3f,rx_byte:00. The count is matching.
+# TB:time:             6665000,tb_rx_byte:10100101,tb_rx_byte_valid:1
+# Time:             6675000, Entered DC_capturing.rx_byte:a5, count:   64
+# Time:             6685000, Entered the 2nd if block
+# Time:             6685000, Didn't complete the count.
+# Time:             6685000,count:   72
+# Time:             6685000, Entered DC_capturing.rx_byte:00, count:   65
+# Time:             6685000,captured_crc_input:00000000,total_frame_byte_count:   65,total_frame_bytes_expected:         67. The count is matching.
+# TB:time:             6755000,tb_rx_byte:10100101,tb_rx_byte_valid:1
+# Time:             6765000, Entered DC_capturing.rx_byte:a5, count:   65
+# Time:             6775000, Entered the 2nd if block
+# Time:             6775000, Didn't complete the count.
+# Time:             6775000,count:   73
+# Time:             6775000, Entered DC_capturing.rx_byte:00, count:   66
+# Time:             6775000,captured_crc_input:000000a5,total_frame_byte_count:   66,total_frame_bytes_expected:         67. The count is matching.
+# TB:time:             6845000,tb_rx_byte:10100101,tb_rx_byte_valid:1
+# Time:             6855000, Entered DC_capturing.rx_byte:a5, count:   66
+# Time:             6865000, Entered the 2nd if block
+# Time:             6865000, Didn't complete the count.
+# Time:             6865000,count:   74
+# Time:             6865000, Entered DC_capturing.rx_byte:00, count:   67
+# Time:             6865000,captured_crc_input:0000a5a5,total_frame_byte_count:   67,total_frame_bytes_expected:         67. The count is matching.
+# TB:time:             6935000,tb_rx_byte:10100101,tb_rx_byte_valid:1
+# Time:             6945000. TB: Sent 76 bytes (bitwise) to DUT
+# Time:             6945000, Entered DC_capturing.rx_byte:a5, count:   67
+# Time:             6955000, Entered the 2nd if block
+# time:             6955000,Enterd the last if block. frame_complete:0,captured_crc_input:0000a5a5
+# Time:             6955000,count:   75
+# TB: Frame complete detected at time              6955000.
+# Time:             6955000, Entered DC_capturing.rx_byte:00, count:   68
+# Time:             6955000,captured_crc_input:00a5a5a5,total_frame_byte_count:   68,total_frame_bytes_expected:         67. The count is matching.
+# Frame_detector,Time:             6965000,frame_end:1. Entering DONE state.
+# time:             6965000,captured_crc_input:00a5a5a5
+# Time:             6995000,ERROR: FIFO mismatch at index 1 : expected 01, got 00
+# Time:             7025000,ERROR: FIFO mismatch at index 2 : expected 02, got 01
+# Time:             7055000,ERROR: FIFO mismatch at index 3 : expected 03, got 02
+# Time:             7085000,ERROR: FIFO mismatch at index 4 : expected 04, got 03
+# Time:             7115000,ERROR: FIFO mismatch at index 5 : expected 05, got 04
+# Time:             7145000,ERROR: FIFO mismatch at index 6 : expected 06, got 05
+# Time:             7175000,ERROR: FIFO mismatch at index 7 : expected 07, got 06
+# Time:             7205000,ERROR: FIFO mismatch at index 8 : expected 08, got 07
+# Time:             7235000,ERROR: FIFO mismatch at index 9 : expected 09, got 08
+# Time:             7265000,ERROR: FIFO mismatch at index 10 : expected 0a, got 09
+# Time:             7295000,ERROR: FIFO mismatch at index 11 : expected 0b, got 0a
+# Time:             7325000,ERROR: FIFO mismatch at index 12 : expected 0c, got 0b
+# Time:             7355000,ERROR: FIFO mismatch at index 13 : expected 0d, got 0c
+# Time:             7385000,ERROR: FIFO mismatch at index 14 : expected 0e, got 0d
+# Time:             7415000,ERROR: FIFO mismatch at index 15 : expected 0f, got 0e
+# Time:             7445000,ERROR: FIFO mismatch at index 16 : expected 10, got 0f
+# Time:             7475000,ERROR: FIFO mismatch at index 17 : expected 11, got 10
+# Time:             7505000,ERROR: FIFO mismatch at index 18 : expected 12, got 11
+# Time:             7535000,ERROR: FIFO mismatch at index 19 : expected 13, got 12
+# Time:             7565000,ERROR: FIFO mismatch at index 20 : expected 14, got 13
+# Time:             7595000,ERROR: FIFO mismatch at index 21 : expected 15, got 14
+# Time:             7625000,ERROR: FIFO mismatch at index 22 : expected 16, got 15
+# Time:             7655000,ERROR: FIFO mismatch at index 23 : expected 17, got 16
+# Time:             7685000,ERROR: FIFO mismatch at index 24 : expected 18, got 17
+# Time:             7715000,ERROR: FIFO mismatch at index 25 : expected 19, got 18
+# Time:             7745000,ERROR: FIFO mismatch at index 26 : expected 1a, got 19
+# Time:             7775000,ERROR: FIFO mismatch at index 27 : expected 1b, got 1a
+# Time:             7805000,ERROR: FIFO mismatch at index 28 : expected 1c, got 1b
+# Time:             7835000,ERROR: FIFO mismatch at index 29 : expected 1d, got 1c
+# Time:             7865000,ERROR: FIFO mismatch at index 30 : expected 1e, got 1d
+# Time:             7895000,ERROR: FIFO mismatch at index 31 : expected 1f, got 1e
+# Time:             7925000,ERROR: FIFO mismatch at index 32 : expected 20, got 1f
+# Time:             7955000,ERROR: FIFO mismatch at index 33 : expected 21, got 20
+# Time:             7985000,ERROR: FIFO mismatch at index 34 : expected 22, got 21
+# Time:             8015000,ERROR: FIFO mismatch at index 35 : expected 23, got 22
+# Time:             8045000,ERROR: FIFO mismatch at index 36 : expected 24, got 23
+# Time:             8075000,ERROR: FIFO mismatch at index 37 : expected 25, got 24
+# Time:             8105000,ERROR: FIFO mismatch at index 38 : expected 26, got 25
+# Time:             8135000,ERROR: FIFO mismatch at index 39 : expected 27, got 26
+# Time:             8165000,ERROR: FIFO mismatch at index 40 : expected 28, got 27
+# Time:             8195000,ERROR: FIFO mismatch at index 41 : expected 29, got 28
+# Time:             8225000,ERROR: FIFO mismatch at index 42 : expected 2a, got 29
+# Time:             8255000,ERROR: FIFO mismatch at index 43 : expected 2b, got 2a
+# Time:             8285000,ERROR: FIFO mismatch at index 44 : expected 2c, got 2b
+# Time:             8315000,ERROR: FIFO mismatch at index 45 : expected 2d, got 2c
+# Time:             8345000,ERROR: FIFO mismatch at index 46 : expected 2e, got 2d
+# Time:             8375000,ERROR: FIFO mismatch at index 47 : expected 2f, got 2e
+# Time:             8405000,ERROR: FIFO mismatch at index 48 : expected 30, got 2f
+# Time:             8435000,ERROR: FIFO mismatch at index 49 : expected 31, got 30
+# Time:             8465000,ERROR: FIFO mismatch at index 50 : expected 32, got 31
+# Time:             8495000,ERROR: FIFO mismatch at index 51 : expected 33, got 32
+# Time:             8525000,ERROR: FIFO mismatch at index 52 : expected 34, got 33
+# Time:             8555000,ERROR: FIFO mismatch at index 53 : expected 35, got 34
+# Time:             8585000,ERROR: FIFO mismatch at index 54 : expected 36, got 35
+# Time:             8615000,ERROR: FIFO mismatch at index 55 : expected 37, got 36
+# Time:             8645000,ERROR: FIFO mismatch at index 56 : expected 38, got 37
+# Time:             8675000,ERROR: FIFO mismatch at index 57 : expected 39, got 38
+# Time:             8705000,ERROR: FIFO mismatch at index 58 : expected 3a, got 39
+# Time:             8735000,ERROR: FIFO mismatch at index 59 : expected 3b, got 3a
+# Time:             8765000,ERROR: FIFO mismatch at index 60 : expected 3c, got 3b
+# Time:             8795000,ERROR: FIFO mismatch at index 61 : expected 3d, got 3c
+# Time:             8825000,ERROR: FIFO mismatch at index 62 : expected 3e, got 3d
+# Time:             8855000,ERROR: FIFO mismatch at index 63 : expected 3f, got 3e
+# Time:             8875000. TB: FIFO read complete. bytes read = 64, errors = 63
+# ERROR: CRC check failed: crc_ok_led = 0 (expected 1)
+# TB: TEST FAILED (fifo_errors=63, crc_ok=0)
+# ** Note: $finish    : /home/maruthi/Downloads/Ethernet_Receiver_project/test/tb.v(239)
+#    Time: 8875 ns  Iteration: 1  Instance: /tb
+# 1
+# Break in Module tb at /home/maruthi/Downloads/Ethernet_Receiver_project/test/tb.v line 239
+# End time: 00:21:33 on Oct 24,2025, Elapsed time: 1:25:50
+# Errors: 0, Warnings: 0

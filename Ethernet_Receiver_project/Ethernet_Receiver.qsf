@@ -1,0 +1,3 @@
+# Placeholder Quartus Settings File (adapt device/pins as needed)
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name TOP_LEVEL_ENTITY ethernet_top

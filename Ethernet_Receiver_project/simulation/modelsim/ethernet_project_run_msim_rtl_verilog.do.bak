@@ -1,0 +1,13 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/code {/home/maruthi/Downloads/Ethernet_Receiver_project/code/fifo_buffer.v}
+vlog -vlog01compat -work work +incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/code {/home/maruthi/Downloads/Ethernet_Receiver_project/code/crc_stub.v}
+vlog -vlog01compat -work work +incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/code {/home/maruthi/Downloads/Ethernet_Receiver_project/code/frame_detector.v}
+vlog -vlog01compat -work work +incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/code {/home/maruthi/Downloads/Ethernet_Receiver_project/code/data_capture.v}
+vlog -vlog01compat -work work +incdir+/home/maruthi/Downloads/Ethernet_Receiver_project/code {/home/maruthi/Downloads/Ethernet_Receiver_project/code/ethernet_top.v}
+

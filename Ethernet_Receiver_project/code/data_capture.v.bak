@@ -1,0 +1,52 @@
+/*
+ data_capture.v
+ Captures bytes when frame_detector asserts capturing.
+ Writes bytes into fifo (write enable). Also captures last 4 bytes to pass to crc_stub.
+*/
+module data_capture #(
+    parameter DATA_WIDTH = 8,
+    parameter PAYLOAD_LIMIT = 1530  // maximum on-wire bytes, but we will limit in test
+)(
+    input clk,
+    input rst,
+    input [DATA_WIDTH-1:0] rx_byte,
+    input rx_byte_valid,
+    input capturing,                 // from frame_detector
+    output reg fifo_wr_en,
+    output reg [DATA_WIDTH-1:0] fifo_wr_data,
+    output reg frame_complete,      // one-cycle strobe when frame ended (for CRC check)
+    output reg [31:0] captured_crc_input // last 4 bytes captured (simple concatenation)
+);
+
+    reg [15:0] byte_count;
+    reg [2:0] last_count;
+    reg [31:0] last_four;
+
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            fifo_wr_en <= 1'b0;
+            fifo_wr_data <= {DATA_WIDTH{1'b0}};
+            byte_count <= 16'd0;
+            frame_complete <= 1'b0;
+            last_four <= 32'd0;
+        end else begin
+            fifo_wr_en <= 1'b0;
+            frame_complete <= 1'b0;
+            if (capturing && rx_byte_valid) begin
+                // write to fifo
+                fifo_wr_en <= 1'b1;
+                fifo_wr_data <= rx_byte;
+                byte_count <= byte_count + 16'd1;
+                // shift into last_four
+                last_four <= {last_four[23:0], rx_byte};
+            end
+            // For this minimal project we decide frame ends when byte_count reaches a small number
+            if (byte_count != 16'd0 && byte_count >= 16'd64) begin
+                // mark complete and reset count (in real design a length field would exist)
+                frame_complete <= 1'b1;
+                captured_crc_input <= last_four;
+                byte_count <= 16'd0;
+            end
+        end
+    end
+endmodule
