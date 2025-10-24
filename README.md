@@ -75,72 +75,7 @@ Ethernet_Receiver_project/
 
 ## Major Issues Encountered and Solutions
 
-### Issue #1: Off-by-One Error in FIFO Data
-**Problem:**
-- FIFO was returning data shifted by one byte
-- Expected byte 0x01 at index 1, but got 0x00
-- All 64 bytes were off by one position
-
-**Root Cause:**
-The `data_capture` module was using **non-blocking assignments (`<=`)** for output signals in the sequential always block:
-
-```verilog
-// WRONG APPROACH
-always @(posedge clk) begin
-    if (capturing && rx_byte_valid) begin
-        fifo_wr_data <= rx_byte;  // Non-blocking - updates at END of clock cycle
-        // $display shows OLD value here!
-    end
-end
-```
-
-**Why it failed:**
-- Non-blocking assignments (`<=`) schedule updates that happen at the end of the time step
-- When `$display` executed, it showed the OLD value
-- FIFO received data one cycle late
-
-**Solution:**
-Separated logic into two always blocks following the UART design pattern:
-
-1. **Sequential block** - Updates internal registers/counters only
-2. **Combinational block** - Generates outputs immediately with blocking assignments
-
-```verilog
-// CORRECT APPROACH
-// Sequential block - updates counters
-always @(posedge clk or posedge rst) begin
-    if (rst) begin
-        total_frame_byte_count <= 16'd0;
-        last_four <= 32'd0;
-    end else if (capturing && rx_byte_valid) begin
-        // Only update internal state
-        total_frame_byte_count <= total_frame_byte_count + 1;
-        if (total_frame_byte_count >= PAYLOAD_LEN) begin
-            last_four <= {last_four[23:0], rx_byte};
-        end
-    end
-end
-
-// Combinational block - immediate outputs
-always @(*) begin
-    fifo_wr_en = 1'b0;
-    fifo_wr_data = 8'd0;
-    
-    if (capturing && rx_byte_valid && total_frame_byte_count < PAYLOAD_LEN) begin
-        fifo_wr_en = 1'b1;
-        fifo_wr_data = rx_byte;  // Blocking assignment - IMMEDIATE!
-    end
-end
-```
-
-**Key Learning:**
-- Use **blocking assignments (`=`)** in combinational blocks for immediate response
-- Use **non-blocking assignments (`<=`)** in sequential blocks for registers
-- Each signal should be driven from only ONE always block
-
----
-
-### Issue #2: FIFO Read Timing - Registered Output Latency
+### Issue: FIFO Read Timing - Registered Output Latency
 **Problem:**
 After fixing Issue #1, data_capture was working perfectly, but testbench still showed mismatches:
 ```
@@ -204,32 +139,6 @@ end
 - Registered outputs (using `<=`) have **1-cycle latency**
 - Testbenches must account for this delay
 - Wait pattern: Assert signal → Wait for processing → Wait for output → Check
-
----
-
-## Design Patterns Used
-
-### 1. UART-Style FSM Pattern
-Inspired by UART_TX and UART_RX modules:
-- **Separate sequential and combinational logic**
-- Sequential: State transitions, counter updates
-- Combinational: Output generation based on current state
-
-### 2. Edge Detection Pattern
-```verilog
-reg prev_capturing;
-always @(posedge clk) begin
-    prev_capturing <= capturing;
-    
-    if (capturing && !prev_capturing) begin
-        // Rising edge detected - reset counters
-        total_frame_byte_count <= 16'd0;
-    end
-end
-```
-
-### 3. Pipelined Read Pattern
-For reading from registered outputs with proper timing.
 
 ---
 
